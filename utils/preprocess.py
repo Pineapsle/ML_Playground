@@ -5,20 +5,28 @@ import pandas as pd
 
 
 def load_data(file_path):
-    pass
+    # Load data from CSV file
+    return pd.read_csv(file_path)
 
-def handle_missing_values(data):
-    # Handle missing values
-    pass
 
-def scale_features(data):
+def scale_features(X):
     # Scale features
-    pass
+    mean = np.mean(X, axis=0)
+    std = np.std(X,axis=0)
+    X_scaled = (X - mean) / std
+    return X_scaled
 
-def encode_categorical_features(df):
-    # Encode categorical features
-    pass
 
-def train_test_split(df, test_size=0.2):
+def train_test_split(X, y, test_size=0.2, random_state=None):
     # Split the data into training and testing sets
-    pass
+    if random_state:
+        np.random.seed(random_state)
+    
+    indices = np.arange(X.shape[0])
+    np.random.shuffle(indices)
+
+    test_size = int(len(X) * test_size)
+    test_indices = indices[:test_size]
+    train_indices = indices[test_size:]
+
+    return X[train_indices], X[test_indices], y[train_indices], y[test_indices]
