@@ -2,6 +2,7 @@
 
 import numpy as np
 import pandas as pd
+from math import sqrt
 from models.linear_regression import LinearRegression
 from utils.preprocess import load_data, scale_features, train_test_split
 from utils.metrics import mean_squared_error, accuracy, r2_score
@@ -27,7 +28,7 @@ def main():
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     # Initialize and train the model
-    model1 = LinearRegression(learning_rate=0.01, n_iters=5000)
+    model1 = LinearRegression(learning_rate=0.01, n_iters=5500)
     model1.fit(X_train, y_train)
 
     # Make predictions and evaluate
@@ -36,7 +37,9 @@ def main():
 
     # Print the results
     print(f"Mean Squared Error: {mse:.5f}")
+    print(f"Root Mean Squared Error: {sqrt(mse):.5f}")
     print(f"R2 Score: {r2_score(y_test, predictions):.5f}")
+    print(f"R Score: {sqrt(r2_score(y_test, predictions)):.5f}")
 
 if __name__ == "__main__":
     main()
