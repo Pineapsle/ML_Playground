@@ -19,3 +19,12 @@ Linear Regression (Supervised Learning with labeled data):
 
             The model explains 79.8% of the variance in house prices and has a very strong and positive linear relationship between the features and SalePrice of houses
             As the features change, the SalePrice also tends to change in a predictable way, which aligns with my model's good performance
+
+
+
+Logistic Regression (Is a house expensive (1) or not (0)   -   Categorization): 
+    How are we labeling/Categorizing?
+        - If a house is more expensive than the median, label it as 1
+        - If a house is less expensive than the median, label it as 0
+
+        ** "How expensive is this house" is linear regression but "Is the house expensive" is logistic regression **
