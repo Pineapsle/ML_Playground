@@ -36,7 +36,7 @@ def get_neural_network_model():
 
 
 
-
+# NEED TO ADD LOGISTIC REGRESSION MODEL IN MAIN FUNCTION (CREATING THE TARGET AS BINARY)
 def main():
     # Load and preprocess data
     df = load_data('D:/Projects/ML_Lab/data/processed/train_cleaned.csv')

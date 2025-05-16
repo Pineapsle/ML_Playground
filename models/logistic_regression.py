@@ -9,6 +9,14 @@ class LogisticRegression:
         self.weights = None
         self.bias = None
 
+    def sigmoid(self, x):
+        return 1 / (1 + np.exp(-x))
+        
+        # Sigmoid function Forumla
+        #          1
+        # σ(x)= ________
+        #       1+e^(-x)
+
     def fit(self, X, y):
         # Implement fitting algorithm
         n_samples, n_features = X.shape
@@ -34,14 +42,6 @@ class LogisticRegression:
         y_predicted = self.sigmoid(linear_model)
         y_predicted_class = [1 if i > 0.5 else 0 for i in y_predicted]
         return np.array(y_predicted_class)
-
-    def sigmoid(self, x):
-        return 1 / (1 + np.exp(-x))
-        
-        # Sigmoid function Forumla
-        #          1
-        # σ(x)= ________
-        #       1+e^(-x)
 
     def predict_proba(self, X):
         # Return probabilities
