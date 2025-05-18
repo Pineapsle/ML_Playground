@@ -1,3 +1,6 @@
+All these models are Supervised Learning
+
+
 Linear Regression (Supervised Learning with labeled data):
     What are we comparing? 
         - Actual Sales Price (y_test) vs Predicted Sales Price (predictions)
