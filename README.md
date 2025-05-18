@@ -1,6 +1,6 @@
 # ML Playground
 
-***This is currently a work in progress. Changes are being made every day *** 
+  ***This is currently a work in progress. Changes are being made every day***
 
 A collection of machine learning models and algorithms built from scratch to learn and experiment with different techniques.
 Includes:
@@ -10,7 +10,8 @@ Includes:
 ## Directory Structure
 
 - `data/`: Contains raw and processed datasets
-- `models/`: Contains different ML model implementations
+- `frontend/`: Contains styling and HTML layout of the web application
+- `models/`: Contains different Machine Learning model implementations
 - `utils/`: Utility functions for preprocessing, metrics, etc.
 - `tests/`: Unit tests for models and utilities
 - `deployment/`: Deployment scripts
