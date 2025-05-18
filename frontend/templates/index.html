@@ -1,20 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+<nav>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#model-selection">Models</a></li>
+    <li><a href="https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques">Dataset</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ML Lab</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
     <header>
-        <h1>ML Lab</h1>
+        <h1 style="color: rgb(189, 171, 253);">Machine Learning Lab</h1>
     </header>
+    <section id="about">
+      <div class="about-container">
+        <h2>About the ML Lab</h2>
+        <p>This web app allows you to explore and run various machine learning models to understand how they work and compare their performance.</p>
+        <p><strong>Dataset:</strong> We use the <a href="https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques" target="_blank">House Prices: Advanced Regression Techniques</a> dataset from Kaggle, which contains features like square footage, number of bedrooms, and neighborhood data to predict home prices.</p>
+      </div>
+    </section>
+
     <main>
         <!-- Main content goes here -->
+        <section id="model-selection">
+            <h2>Select a Model</h2>
+                <div class="model-cards">
+                    <div class="model-card">
+                        <h3>Linear Regression</h3>
+                        <p>A basic model that predicts house prices based on a straight-line relationship.</p>
+                        <button class="model-btn" data-model="model1">Run Model</button>
+                    </div>
+                    <div class="model-card">
+                        <h3>Logistic Regression</h3>
+                        <p>Used for classification problems — here we adapt it to predict categories like price tiers.</p>
+                        <button class="model-btn" data-model="model2">Run Model</button>
+                    </div>
+                    <div class="model-card">
+                        <h3>Decision Tree</h3>
+                        <p>A tree-like model that splits features to make decisions step-by-step.</p>
+                        <button class="model-btn" data-model="model3">Run Model</button>
+                    </div>
+                    <div class="model-card">
+                        <h3>Neural Network</h3>
+                        <p>A powerful model with layers that mimic brain neurons to learn complex patterns.</p>
+                        <button class="model-btn" data-model="model4">Run Model</button>
+                    </div>
+                </div>
+        </section>
     </main>
     <footer>
-        <p>&copy; 2024 ML Lab</p>
+        <p>&copy; 2025 ML Lab</p>
     </footer>
     <script src="script.js"></script>
 </body>
