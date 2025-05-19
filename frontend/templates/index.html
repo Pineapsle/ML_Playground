@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ML Lab</title>
-    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="static/styles_index.css">
 </head>
 <body>
     <header>
@@ -27,22 +27,30 @@
                     <div class="model-card">
                         <h3>Linear Regression</h3>
                         <p>A basic model that predicts house prices based on a straight-line relationship.</p>
-                        <button class="model-btn" data-model="model1">Run Model</button>
+                        <form action="/lin_reg" method="post">
+                            <button class="model-btn" data-model="model1">Run Model</button>
+                        </form>
                     </div>
                     <div class="model-card">
                         <h3>Logistic Regression</h3>
                         <p>Used for classification problems — here we adapt it to predict categories like price tiers.</p>
-                        <button class="model-btn" data-model="model2">Run Model</button>
+                        <form action="/log_reg" method="post">
+                            <button class="model-btn" data-model="model2">Run Model</button>
+                        </form>
                     </div>
                     <div class="model-card">
                         <h3>Decision Tree</h3>
                         <p>A tree-like model that splits features to make decisions step-by-step.</p>
-                        <button class="model-btn" data-model="model3">Run Model</button>
+                        <form action="/dec_tree" method="post">
+                            <button class="model-btn" data-model="model3">Run Model</button>
+                        </form>
                     </div>
                     <div class="model-card">
                         <h3>Neural Network</h3>
                         <p>A powerful model with layers that mimic brain neurons to learn complex patterns.</p>
-                        <button class="model-btn" data-model="model4">Run Model</button>
+                        <form action="/neural" method="post">
+                            <button class="model-btn" data-model="model4">Run Model</button>
+                        </form>
                     </div>
                 </div>
         </section>

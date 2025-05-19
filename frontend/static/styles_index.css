@@ -25,7 +25,7 @@ body::before {
   height: 200%;
   background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
   animation: stars 100s linear infinite;
-  opacity: 0.25;
+  opacity: 0.45;
   z-index: 0;
 }
 
