@@ -11,10 +11,11 @@ Includes:
 
 - `data/`: Contains raw and processed datasets
 - `frontend/`: Contains styling and HTML layout of the web application
+-   `static/`: Contains all the styling
+-   `templates/`: Contains all the HTML files
 - `models/`: Contains different Machine Learning model implementations
 - `utils/`: Utility functions for preprocessing, metrics, etc.
 - `tests/`: Unit tests for models and utilities
-- `deployment/`: Deployment scripts
 
 ---
 
