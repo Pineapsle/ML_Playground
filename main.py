@@ -4,8 +4,10 @@ import numpy as np
 import pandas as pd
 from math import sqrt
 from models.linear_regression import LinearRegression
+from models.logistic_regression import LogisticRegression
 from utils.preprocess import load_data, scale_features, train_test_split
 from utils.metrics import mean_squared_error, accuracy, r2_score
+from utils.visualization import plot_linear_regression, plot_logistic_regression
 
 
 # Linear regression model 
@@ -25,8 +27,30 @@ def get_linear_regression_model(X_train, X_test, y_train, y_test):
     print(f"R2 Score: {r2_score(y_test, predictions):.5f}")
     print(f"R Score: {sqrt(r2_score(y_test, predictions)):.5f}")
 
-def get_logistic_regression_model():
-    pass
+    return predictions
+
+
+def get_logistic_regression_model(X_train, X_test, y_train, y_test):
+    # Convert target to binary: 1 if above median price, else 0
+    median_price = np.median(np.concatenate((y_train, y_test)))
+    y_train_binary = (y_train > median_price).astype(int)
+    y_test_binary = (y_test > median_price).astype(int)
+
+    # Train the Logistic Regression model
+    model2 = LogisticRegression(learning_rate=0.01, n_iters=5500)
+    model2.fit(X_train, y_train_binary)
+
+    # Make predictions and evaluate
+    predictions = model2.predict(X_test)
+    accuracy_score = accuracy(y_test_binary, predictions)
+
+    # Print the results
+    print(" \n------ Logistic Regression Model ------ ")
+    print(f"Accuracy: {accuracy_score:.5f}")
+
+    return predictions, y_test_binary, model2
+
+
 
 def get_decision_tree_model():
     pass
@@ -35,8 +59,6 @@ def get_neural_network_model():
     pass
 
 
-
-# NEED TO ADD LOGISTIC REGRESSION MODEL IN MAIN FUNCTION (CREATING THE TARGET AS BINARY)
 def main():
     # Load and preprocess data
     df = load_data('D:/Projects/ML_Lab/data/processed/train_cleaned.csv')
@@ -59,6 +81,20 @@ def main():
 
     # Get the models and run the experiments
     get_linear_regression_model(X_train, X_test, y_train, y_test)
+    get_logistic_regression_model(X_train, X_test, y_train, y_test)
+
+    # Graph the results
+    preds_lin_reg = get_linear_regression_model(X_train, X_test, y_train, y_test)
+    preds_log_reg, y_test_binary, model_log_reg = get_logistic_regression_model(X_train, X_test, y_train, y_test)
+
+    plot_linear_regression(y_test, preds_lin_reg, title="Linear Regression Predictions vs Actual")
+    plot_logistic_regression(y_test_binary, preds_log_reg, X_test, model_log_reg, feature_index=0, title1="Logistic Regression Predictions vs Actual with Sigmoid Curve", title2="Predicted Probabilities vs Feature 0 Values")
 
 if __name__ == "__main__":
     main()
+
+
+
+
+    # Maybe try to separate the print statements from the model classes
+    # and put them in the main function
