@@ -1,22 +1,240 @@
-.center-btn {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.back-btn {
-    background: linear-gradient(135deg, #5e3597, #4d1c8d);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    padding: 12px 24px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 12px rgba(162, 89, 255, 0.4);
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(ellipse at bottom, #0a001f 0%, #000010 100%);
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
 }
 
-a {
-    color: #fcfbff;
-    text-decoration: none;
+/* Animated stars */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 200%;
+  height: 200%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+  animation: stars 120s linear infinite;
+  opacity: 0.45;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes stars {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-500px, -1000px); }
+}
+
+/* Glassmorphism base style */
+.glass-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(162, 89, 255, 0.15);
+  padding: 1.75rem 2rem;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.glass-card:hover {
+  box-shadow: 0 8px 40px rgba(162, 89, 255, 0.35);
+}
+
+/* Nav */
+nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: rgba(10, 0, 31, 0.85);
+  backdrop-filter: blur(14px);
+  z-index: 100;
+  padding: 1rem 0;
+  box-shadow: 0 3px 12px rgba(162, 89, 255, 0.25);
+  font-family: 'Orbitron', sans-serif;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+nav a {
+  color: #b085ff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: color 0.25s ease;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+/* Header */
+header {
+  padding: 3rem 1rem 2rem;
+  text-align: center;
+  background: transparent;
+  color: #c8aaff;
+  text-shadow: 0 0 18px #bb9fff;
+  font-family: 'Orbitron', sans-serif;
+}
+
+header h1 {
+  font-size: 3.4rem;
+  letter-spacing: 0.05em;
+}
+
+/* Main container */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  gap: 2.5rem;
+}
+
+/* Model Selection Section */
+#model-selection {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  padding: 2.2rem 2rem;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 35px rgba(162, 89, 255, 0.25);
+  text-align: center;
+  color: #d0b9ff;
+}
+
+#model-selection h2 {
+  margin-bottom: 1.8rem;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+/* Buttons */
+.model-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.model-btn {
+  background: linear-gradient(135deg, #6a3aaf, #4b1f8f);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 28px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 16px rgba(162, 89, 255, 0.5);
+  transition: transform 0.22s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.model-btn:hover,
+.model-btn:focus {
+  outline: none;
+  transform: scale(1.08);
+  box-shadow: 0 0 28px rgba(162, 89, 255, 0.8);
+}
+
+/* Model cards grid */
+.model-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+/* Model cards with glass style */
+.model-card {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.2px solid rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  padding: 1.8rem 1.5rem;
+  backdrop-filter: blur(14px);
+  text-align: center;
+  box-shadow: 0 0 24px rgba(162, 89, 255, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+.model-card:hover {
+  box-shadow: 0 0 42px rgba(162, 89, 255, 0.35);
+}
+
+.model-card h3 {
+  color: #cdb3ff;
+  margin-bottom: 0.7rem;
+  font-weight: 700;
+  font-size: 1.35rem;
+}
+
+.model-card p {
+  font-size: 1rem;
+  color: #cfcfcf;
+  line-height: 1.45;
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+}
+
+/* About section */
+#about {
+  padding: 3.5rem 1.5rem;
+  text-align: center;
+  color: #dcd6ff;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.about-container {
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 0 38px rgba(162, 89, 255, 0.25);
+  border: 1.3px solid rgba(255, 255, 255, 0.18);
+  margin: 0 auto;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #af9fef;
+  user-select: text;
+}
+
+/* Footer */
+footer {
+  padding: 1.25rem;
+  text-align: center;
+  color: #999;
+  background: transparent;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  user-select: none;
 }
