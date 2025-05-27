@@ -1,7 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 
-def plot_linear_regression(y_test, predictions, title="Linear Regression Predictions vs Actual"):
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..')) # To get outside the utils directory
+STATIC_IMAGE_DIR = os.path.join(PROJECT_ROOT, 'frontend', 'static', 'images') # Directory to save images in frontend/static/images
+
+def plot_linear_regression(y_test, predictions, title="Linear Regression Predictions vs Actual", filename="linear_regression_plot.png"):
     plt.figure(figsize=(10, 6))
     plt.scatter(y_test, predictions, color='blue', label='Predictions')
     plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--', lw=2)
@@ -10,11 +14,18 @@ def plot_linear_regression(y_test, predictions, title="Linear Regression Predict
     plt.ylabel('Predicted Values')
     plt.legend()
     plt.grid()
-    plt.show()
+    
+    # Save directly to frontend/static/images
+    plot_path = os.path.join(STATIC_IMAGE_DIR, filename)
+    plt.savefig(plot_path)
+    plt.close()  # Prevent memory leak
+
+    return filename  # Return just the filename (Flask will use it with url_for)
 
 def plot_logistic_regression(y_test, predictions, X, model, feature_index=0,
                              title1="Logistic Regression Predictions vs Actual",
-                             title2="Sigmoid Curve of Logistic Regression"):
+                             title2="Sigmoid Curve of Logistic Regression",
+                             filename="logistic_regression_plot.png"):
 
     fig, axs = plt.subplots(2, 1, figsize=(10, 10))
 
@@ -63,4 +74,10 @@ def plot_logistic_regression(y_test, predictions, X, model, feature_index=0,
     axs[1].grid(True)
 
     plt.tight_layout()
-    plt.show()
+    
+    # Save directly to frontend/static/images
+    plot_path = os.path.join(STATIC_IMAGE_DIR, filename)
+    plt.savefig(plot_path)
+    plt.close()  # Prevent memory leak
+
+    return filename  # Return just the filename (Flask will use it with url_for)

@@ -123,7 +123,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-    # Maybe try to separate the print statements from the model classes
-    # and put them in the main function
