@@ -19,6 +19,10 @@ Includes:
 
 ---
 
+## GIFs
+
+
+
 ## 🚀 Getting Started
 
 ### 🔧 Prerequisites
