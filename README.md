@@ -21,6 +21,9 @@ Includes:
 
 ## GIFs
 
+![giphy](https://github.com/user-attachments/assets/2d2e384d-fb7f-4e7a-a993-d2fc41b42dd0)
+![giphy](https://github.com/user-attachments/assets/f4430989-353b-4143-9255-61e389bba32b)
+
 
 
 ## 🚀 Getting Started
