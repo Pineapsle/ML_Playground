@@ -1,6 +1,5 @@
 # ML Playground
 
-  ***This is currently a work in progress. Changes are being made every day***
 
 A collection of machine learning models and algorithms built from scratch to learn and experiment with different techniques.
 Includes:
